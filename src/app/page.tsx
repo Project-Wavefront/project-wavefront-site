@@ -11,34 +11,38 @@ import Link from "next/link";
 // hello world!
 
 const sponsors = [
-  /*{
-    src: "/home/sponsors/nasa.png",
-    alt: "NASA sponsor logo",
-    href: "https://www.nasa.gov",
-    width: 250,
-    height: 250,
-    containerClass: "w-48 h-48 md:w-56 md:h-56",
-    scaleClass: "scale-120",
-  },*/
   {
-    src: "/home/sponsors/ansys.png",
+    src: "/home/sponsors/afrl.png",
+    alt: "Air Force Research Laboratory sponsor logo",
+    href: "https://www.afrl.af.mil/",
+    width: 500,
+    height: 500,
+    fillWidth: true,
+    lightCard: true,
+  },
+  {
+    src: "/home/sponsors/newansys.png",
     alt: "Ansys sponsor logo",
     href: "https://www.ansys.com",
-    width: 192,
-    height: 192,
-    containerClass: "w-48 h-48 md:w-56 md:h-56",
-    scaleClass: "scale-110",
+    width: 792,
+    height: 256,
+    imageClass: "scale-130",
+    lightCard: true,
   },
-];
-
-const bottomSponsors = [
   {
     src: "/home/sponsors/renishaw.png",
     alt: "Renishaw sponsor logo",
     href: "https://www.renishaw.com",
     width: 400,
     height: 150,
-    containerClass: "w-60 h-30 md:w-70 md:h-30",
+  },
+  {
+    src: "/home/sponsors/newkittyhawk.png",
+    alt: "Kittyhawk sponsor logo",
+    href: "https://www.kittyhawkinc.com/",
+    width: 3215,
+    height: 650,
+    lightCard: true,
   },
   {
     src: "/home/sponsors/sendcutsend.png",
@@ -46,18 +50,7 @@ const bottomSponsors = [
     href: "https://sendcutsend.com",
     width: 400,
     height: 150,
-    containerClass: "w-60 h-30 md:w-70 md:h-30",
-  },
-];
-
-const fourthRowSponsors = [
-  {
-    src: "/home/sponsors/hygrade.jpg",
-    alt: "Hy-Grade Valves sponsor logo",
-    href: "https://hy-grade.com/",
-    width: 500,
-    height: 200,
-    containerClass: "w-72 h-36 md:w-80 md:h-40",
+    imageClass: "scale-115",
   },
   {
     src: "/home/sponsors/kulite.png",
@@ -65,7 +58,16 @@ const fourthRowSponsors = [
     href: "https://kulite.com/",
     width: 500,
     height: 200,
-    containerClass: "w-72 h-36 md:w-80 md:h-40",
+    imageClass: "scale-165",
+    lightCard: true,
+  },
+  {
+    src: "/home/sponsors/newhygrade.png",
+    alt: "Hy-Grade Valves sponsor logo",
+    href: "https://hy-grade.com/",
+    width: 600,
+    height: 110,
+    lightCard: true,
   },
 ];
 
@@ -243,72 +245,39 @@ export default function Home() {
             </p>
           </div>
           {/* Right Column: Sponsor Logos */}
-          <div className="relative h-full">
-            <div className="flex flex-col items-center justify-center h-full w-full p-8">
-              {/* Top row: 3 logos side by side */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mb-8">
-                {sponsors.map((sponsor) => (
-                  <Link
-                    key={sponsor.alt}
-                    href={sponsor.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center justify-center ${sponsor.containerClass} transition-opacity duration-200 hover:opacity-75`}
-                  >
-                    <div className={sponsor.scaleClass || undefined}>
-                      <Image
-                        src={sponsor.src}
-                        alt={sponsor.alt}
-                        width={sponsor.width}
-                        height={sponsor.height}
-                        className="object-contain max-w-full max-h-full"
-                      />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-
-              {/* Bottom row: 2 logos side by side */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-1xl mt-2">
-                {bottomSponsors.map((sponsor) => (
-                  <Link
-                    key={sponsor.alt}
-                    href={sponsor.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center justify-center ${sponsor.containerClass} transition-opacity duration-200 hover:opacity-75`}
+          <div className="flex items-center justify-center px-6 pb-16 md:px-8 md:py-20">
+            <div className="grid w-full max-w-3xl grid-cols-2 gap-4 sm:gap-6">
+              {sponsors.map((sponsor) => (
+                <Link
+                  key={sponsor.alt}
+                  href={sponsor.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${sponsor.alt.replace(" sponsor logo", "")}`}
+                  className={`group flex h-28 items-center justify-center rounded-xl border p-5 shadow-lg backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white last:col-span-2 last:mx-auto last:w-[calc(50%-0.75rem)] sm:h-32 sm:p-6 ${
+                    sponsor.cardClass ??
+                    (sponsor.lightCard
+                      ? "border-slate-200/80 bg-slate-100 hover:border-white hover:bg-white"
+                      : "border-white/15 bg-black/35 hover:border-white/40 hover:bg-white/10")
+                  }`}
+                >
+                  <div
+                    className={`flex h-full w-full items-center justify-center ${sponsor.imageClass ?? ""}`}
                   >
                     <Image
                       src={sponsor.src}
                       alt={sponsor.alt}
                       width={sponsor.width}
                       height={sponsor.height}
-                      className="object-contain max-w-full max-h-full"
+                      className={`object-contain transition-transform duration-200 group-hover:scale-105 ${
+                        sponsor.fillWidth
+                          ? "h-auto w-full max-w-none"
+                          : "max-h-full max-w-full"
+                      }`}
                     />
-                  </Link>
-                ))}
-              </div>
-
-              {/* Fourth row: Hy-Grade + Kulite */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mt-1">
-                {fourthRowSponsors.map((sponsor) => (
-                  <Link
-                    key={sponsor.alt}
-                    href={sponsor.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center justify-center ${sponsor.containerClass} transition-opacity duration-200 hover:opacity-75`}
-                  >
-                    <Image
-                      src={sponsor.src}
-                      alt={sponsor.alt}
-                      width={sponsor.width}
-                      height={sponsor.height}
-                      className="object-contain max-w-full max-h-full"
-                    />
-                  </Link>
-                ))}
-              </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
