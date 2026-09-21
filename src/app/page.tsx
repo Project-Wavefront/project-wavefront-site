@@ -10,7 +10,19 @@ import Link from "next/link";
 
 // hello world!
 
-const sponsors = [
+type Sponsor = {
+  src: string;
+  alt: string;
+  href: string;
+  width: number;
+  height: number;
+  imageClass?: string;
+  lightCard?: boolean;
+  fillWidth?: boolean;
+  cardClass?: string;
+};
+
+const sponsors: Sponsor[] = [
   {
     src: "/home/sponsors/afrl.png",
     alt: "Air Force Research Laboratory sponsor logo",
