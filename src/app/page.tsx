@@ -274,7 +274,7 @@ export default function Home() {
                   }`}
                 >
                   <div
-                    className={`flex h-full w-full items-center justify-center ${sponsor.imageClass ?? ""}`}
+                    className={`pointer-events-none flex h-full w-full items-center justify-center ${sponsor.imageClass ?? ""}`}
                   >
                     <Image
                       src={sponsor.src}
