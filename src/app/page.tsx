@@ -86,7 +86,8 @@ const sponsors: Sponsor[] = [
     href: "https://www.kennametal.com/us/en/home.html",
     width: 764,
     height: 401,
-    imageClass: "scale-150",
+    imageClass: "overflow-hidden",
+    fillWidth: true,
     cardClass: "border-slate-200/80 bg-white hover:border-white hover:bg-white",
   },
   {
