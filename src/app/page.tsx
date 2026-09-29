@@ -65,6 +65,31 @@ const sponsors: Sponsor[] = [
     imageClass: "scale-115",
   },
   {
+    src: "/home/sponsors/vacubraze.png",
+    alt: "Vacuum Braze sponsor logo",
+    href: "https://www.vacubraze.net/",
+    width: 800,
+    height: 219,
+    cardClass: "border-slate-200/80 bg-white hover:border-white hover:bg-white",
+  },
+  {
+    src: "/home/sponsors/harveytool.png",
+    alt: "Harvey Tool sponsor logo",
+    href: "https://www.harveytool.com/",
+    width: 2048,
+    height: 310,
+    cardClass: "border-slate-200/80 bg-white hover:border-white hover:bg-white",
+  },
+  {
+    src: "/home/sponsors/kennametal.png",
+    alt: "Kennametal sponsor logo",
+    href: "https://www.kennametal.com/us/en/home.html",
+    width: 764,
+    height: 401,
+    imageClass: "scale-150",
+    cardClass: "border-slate-200/80 bg-white hover:border-white hover:bg-white",
+  },
+  {
     src: "/home/sponsors/kulite.png",
     alt: "Kulite Semiconductors sponsor logo",
     href: "https://kulite.com/",
@@ -266,7 +291,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visit ${sponsor.alt.replace(" sponsor logo", "")}`}
-                  className={`group flex h-28 items-center justify-center rounded-xl border p-5 shadow-lg backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white last:col-span-2 last:mx-auto last:w-[calc(50%-0.75rem)] sm:h-32 sm:p-6 ${
+                  className={`group flex h-28 items-center justify-center rounded-xl border p-5 shadow-lg backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:h-32 sm:p-6 ${
                     sponsor.cardClass ??
                     (sponsor.lightCard
                       ? "border-slate-200/80 bg-slate-100 hover:border-white hover:bg-white"
