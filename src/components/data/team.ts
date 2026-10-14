@@ -99,6 +99,16 @@ export const ACTIVE_MEMBERS: TeamMember[] = [
     url: "https://www.linkedin.com/in/malin-kussi/",
   },
   {
+    image: "/team/donovan-burke.png",
+    name: "Donovan Burke",
+    title: "Mechanical Engineer",
+    school: "University of Pennsylvania",
+    major: "Mechanical Engineering & Applied Mechanics",
+    sentence:
+      "“I’m excited to turn an ambitious idea into real hardware, learn alongside a driven team, and contribute to the future of propulsion.”",
+    url: "https://donovan-burke.me/",
+  },
+  {
     image: "/team/jacob-stein.jpg",
     name: "Jacob Stein",
     title: "Chief Administrative Officer",
