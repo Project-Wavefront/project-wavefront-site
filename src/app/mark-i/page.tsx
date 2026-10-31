@@ -169,16 +169,16 @@ export default function Mark1RDRE() {
             MARK I TESTING & ROADMAP
           </h2>
           <p className="text-lg text-slate-300 leading-relaxed text-center max-w-3xl mx-auto mb-12">
-            Mark 1 will undergo hot-fire testing on Wavefront&apos;s
-            custom-built test stand in January 2027, aiming to reach thermal
-            equilibrium in the process. Future iterations focus on full-duration
-            burn stability, cryogenic fuel integration, and eventual
-            flight-qualified units for launch vehicle prototypes.
+            The Mark I demonstrator is scheduled for hot-fire testing on
+            Wavefront&apos;s custom-built test stand on November 5, 2026, with
+            test data analysis beginning December 1. Future iterations focus on
+            full-duration burn stability, cryogenic fuel integration, and
+            eventual flight-qualified units for launch vehicle prototypes.
           </p>
 
           <Timeline
             startDate="2025-06"
-            endDate="2027-01"
+            endDate="2026-12"
             milestones={[
               {
                 date: "2025-06-01",
@@ -300,23 +300,17 @@ export default function Mark1RDRE() {
                 completed: true,
               },
               {
-                date: "2026-10-15",
-                title: "Mark I Demonstrator is Tested",
+                date: "2026-11-05",
+                title: "Mark I-D Hotfire",
                 description:
                   "Hotfire testing of the Mark I heatsink demonstrator verifies all components and subsystems.",
                 completed: false,
               },
               {
-                date: "2026-11-01",
-                title: "Mark I Hotfire Buildup",
+                date: "2026-12-01",
+                title: "Mark I-D Data Analysis",
                 description:
-                  "Production of Mark I begins, and the team builds up to a full test campaign.",
-                completed: false,
-              },
-              {
-                date: "2027-01-15",
-                title: "Mark I Hotfire",
-                description: "Mark I is hotfired, and data analysis begins.",
+                  "The team analyzes data from the Mark I-D hotfire.",
                 completed: false,
               },
             ]}
