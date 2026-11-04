@@ -24,15 +24,6 @@ type Sponsor = {
 
 const sponsors: Sponsor[] = [
   {
-    src: "/home/sponsors/afrl.png",
-    alt: "Air Force Research Laboratory sponsor logo",
-    href: "https://www.afrl.af.mil/",
-    width: 500,
-    height: 500,
-    fillWidth: true,
-    lightCard: true,
-  },
-  {
     src: "/home/sponsors/newansys.png",
     alt: "Ansys sponsor logo",
     href: "https://www.ansys.com",
