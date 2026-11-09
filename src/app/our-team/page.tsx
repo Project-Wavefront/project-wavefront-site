@@ -5,6 +5,11 @@ import Header from "@/components/header";
 
 import ProfileCard from "@/components/ProfileCard";
 import { ChevronDown } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Team | Project Wavefront",
+};
 
 export default function OurTeam() {
   return (
@@ -28,7 +33,7 @@ export default function OurTeam() {
         <div className="max-w-7xl mx-auto w-full flex flex-col">
           <div className="animate-fade-slide-up">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center mb-6">
-              TEAM WAVEFRONT
+              TEAM
             </h1>
             <p className="mx-auto max-w-2xl text-center text-xl leading-relaxed text-slate-300">
               The undergraduate team behind Mark I&apos;s successful hotfire

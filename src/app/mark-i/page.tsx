@@ -1,3 +1,4 @@
+import EngineArchitectureCarousel from "@/components/EngineArchitectureCarousel";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Timeline from "@/components/Timeline";
@@ -218,21 +219,51 @@ export default function MarkI() {
                   Mark I is a monolithic, fully 3D-printed engine. Running on
                   gaseous methane or ethylene and gaseous oxygen, Mark 1 uses
                   100% printed impinging triplet injectors and combustion
-                  geometry with no post-processing. Our team took the engine
-                  from idea to test.
+                  geometry with no post-processing. Rotating detonation rocket
+                  engines (RDREs) harness high-pressure shockwaves moving above
+                  Mach 1 to create more efficient combustion.
                 </p>
               </div>
-              <Photo
-                src="/mark-i/engine-profile.webp"
-                alt="Profile view of the monolithic 3D-printed Mark I engine"
-                className="aspect-[5/4]"
-              />
+              <EngineArchitectureCarousel />
             </div>
-            <div className="mx-auto mt-12 max-w-3xl lg:mt-16">
-              <Photo
-                src="/mark-i/engine-top.webp"
-                alt="Top view looking into the Mark I engine"
-              />
+          </div>
+        </section>
+
+        <section className="border-t border-white/10 bg-black px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+              <div>
+                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl">
+                  STARTUP
+                </h2>
+                <p className="mt-7 max-w-xl text-lg leading-relaxed text-slate-300">
+                  Mark 1 uses a predetonator tube, otherwise known as a
+                  Deflagration-to-Detonation Tube (DDT) to initiate a
+                  high-energy sequence. The tube was configured to ignite
+                  directly through the chamber wall and optionally at the
+                  exhaust exit.
+                </p>
+              </div>
+              <figure className="mx-auto w-full max-w-lg">
+                <video
+                  width={230}
+                  height={256}
+                  autoPlay
+                  controls
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  aria-label="Mark I Ignition Sequence"
+                  className="block h-auto w-full bg-black object-contain"
+                >
+                  <source src="/mark-i/startup.mp4" type="video/mp4" />
+                  Your browser does not support video playback.
+                </video>
+                <figcaption className="pt-3 text-sm tracking-wide text-slate-400">
+                  Mark I Ignition Sequence
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>
@@ -241,40 +272,14 @@ export default function MarkI() {
           <div className="mx-auto max-w-7xl">
             <div className="max-w-3xl">
               <h2 className="text-4xl font-bold tracking-wide sm:text-5xl">
-                STARTUP
-              </h2>
-              <p className="mt-6 text-lg leading-relaxed text-slate-300">
-                Mark 1 uses a predetonator tube, otherwise known as a
-                Deflagration-to-Detonation Tube (DDT) to initiate a high-energy
-                sequence. The tube was configured to ignite directly through the
-                chamber wall and optionally at the exhaust exit.
-              </p>
-            </div>
-            <figure className="mx-auto mt-12 w-full max-w-md">
-              <video
-                controls
-                loop
-                playsInline
-                preload="auto"
-                aria-label="Mark I Ignition Sequence"
-                className="aspect-square w-full bg-black object-cover object-center"
-              >
-                <source src="/mark-i/startup.mp4" type="video/mp4" />
-                Your browser does not support video playback.
-              </video>
-              <figcaption className="pt-3 text-sm tracking-wide text-slate-400">
-                Mark I Ignition Sequence
-              </figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section className="border-t border-white/10 bg-neutral-900 px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-          <div className="mx-auto max-w-7xl">
-            <div className="max-w-3xl">
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl">
                 THE TEST CAMPAIGN
               </h2>
+              <p className="mt-7 text-lg leading-relaxed text-slate-300">
+                Project Wavefront successfully hotfired Mark I 100 times for
+                runtimes up to 10 s in November 2026. The team consistently
+                achieved wave modes with 2+ waves and operated with both
+                ethylene and methane as propellants.
+              </p>
             </div>
             <div className="mx-auto mt-12 max-w-3xl">
               <Photo
@@ -284,15 +289,19 @@ export default function MarkI() {
             </div>
             <div className="mx-auto mt-14 grid max-w-5xl gap-8 md:grid-cols-2">
               <figure>
-                <div className="aspect-[4/3] overflow-hidden bg-black">
+                <div className="overflow-hidden bg-black">
                   <video
+                    width={480}
+                    height={468}
+                    autoPlay
                     controls
                     loop
+                    muted
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                     poster="/mark-i/hotfire-front.png"
                     aria-label="Short Duration Methane Run of Mark I"
-                    className="h-full w-full object-cover object-center"
+                    className="block h-auto w-full object-contain"
                   >
                     <source src="/mark-i/firing.mp4" type="video/mp4" />
                   </video>
@@ -303,18 +312,22 @@ export default function MarkI() {
               </figure>
               <figure className="mx-auto w-full max-w-md">
                 <video
+                  width={216}
+                  height={256}
+                  autoPlay
                   controls
                   loop
+                  muted
                   playsInline
-                  preload="metadata"
+                  preload="auto"
                   poster="/mark-i/two-waves-poster.jpg"
-                  aria-label="Waves in Mark I"
-                  className="aspect-square w-full bg-black object-contain object-center"
+                  aria-label="Detonation Waves in Mark I"
+                  className="block h-auto w-full bg-black object-contain"
                 >
                   <source src="/mark-i/two-waves-short.mp4" type="video/mp4" />
                 </video>
                 <figcaption className="pt-3 text-sm tracking-wide text-slate-400">
-                  Waves in Mark I
+                  Detonation Waves in Mark I
                 </figcaption>
               </figure>
             </div>

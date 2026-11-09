@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 1200" fill="none">
+  <defs>
+    <radialGradient id="haze" cx="0" cy="0" r="1" gradientTransform="translate(220 650) rotate(90) scale(650 205)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8196a7" stop-opacity=".19" />
+      <stop offset=".55" stop-color="#5b7185" stop-opacity=".10" />
+      <stop offset="1" stop-color="#52677b" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="silhouette" x1="166" y1="0" x2="274" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#030507" />
+      <stop offset=".5" stop-color="#000102" />
+      <stop offset="1" stop-color="#030507" />
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="220" cy="650" rx="205" ry="650" fill="url(#haze)" />
+
+  <!-- The outboard fins sit behind the uninterrupted rocket body. -->
+  <path d="M166 886L147 947L102 1074L93 1135L90 1152H166V886Z" fill="#010203" stroke="#080d12" stroke-opacity=".52" stroke-width="2" stroke-linejoin="round" />
+  <path d="M274 886L293 947L338 1074L347 1135L350 1152H274V886Z" fill="#010203" stroke="#080d12" stroke-opacity=".52" stroke-width="2" stroke-linejoin="round" />
+
+  <path d="M220 34C200 79 183 134 174 191C168 226 166 256 166 286V1152H274V286C274 256 272 226 266 191C257 134 240 79 220 34Z" fill="url(#silhouette)" stroke="#090f15" stroke-opacity=".56" stroke-width="2" stroke-linejoin="round" />
+</svg>

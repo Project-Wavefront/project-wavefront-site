@@ -36,7 +36,7 @@ export default function Footer() {
                 href="/our-team"
                 className="w-fit hover:text-blue-400 transition duration-200 tracking-wide"
               >
-                OUR TEAM
+                TEAM
               </Link>
               <Link
                 href="/contact"

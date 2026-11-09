@@ -28,12 +28,11 @@ type OfferCompany = {
   name: string;
   logo: string;
   dark?: boolean;
-  featured?: boolean;
 };
 
 const offerCompanies: OfferCompany[] = [
-  { name: "SpaceX", logo: "/offers/spacex.png", featured: true },
-  { name: "NASA", logo: "/offers/nasa.png", featured: true },
+  { name: "SpaceX", logo: "/offers/spacex.png" },
+  { name: "NASA", logo: "/offers/nasa.png" },
   { name: "Anduril", logo: "/offers/anduril.png" },
   { name: "Pratt & Whitney / RTX", logo: "/offers/pratt-whitney.png" },
   { name: "Relativity Space", logo: "/offers/relativity-space-on-white.png" },
@@ -373,7 +372,7 @@ export default function JoinUs() {
               <p className="mt-3 text-slate-300">
                 For partnerships, press, and anything else, email us at{" "}
                 <a
-                  className="break-all text-white underline underline-offset-4"
+                  className="whitespace-nowrap text-white underline underline-offset-4"
                   href={`mailto:${applicationEmail}`}
                 >
                   {applicationEmail}
@@ -393,20 +392,14 @@ export default function JoinUs() {
               {offerCompanies.map((company) => (
                 <li
                   key={company.name}
-                  className={`flex min-h-32 items-center justify-center overflow-hidden rounded-lg border p-5 shadow-[0_10px_30px_rgba(0,0,0,0.18)] ${company.dark ? "border-white/15 bg-[#141b25]" : "border-white/10 bg-white"} ${company.featured ? "lg:col-span-2 lg:min-h-44" : ""}`}
+                  className={`flex min-h-32 items-center justify-center overflow-hidden rounded-lg border p-5 shadow-[0_10px_30px_rgba(0,0,0,0.18)] ${company.dark ? "border-white/15 bg-[#141b25]" : "border-white/10 bg-white"}`}
                 >
-                  <div
-                    className={`relative w-[92%] ${company.featured ? "h-[6.25rem]" : "h-[4.5rem]"}`}
-                  >
+                  <div className="relative h-[4.5rem] w-[92%]">
                     <Image
                       src={company.logo}
                       alt={`${company.name} logo`}
                       fill
-                      sizes={
-                        company.featured
-                          ? "(min-width: 1024px) 560px, 90vw"
-                          : "(min-width: 1024px) 260px, 90vw"
-                      }
+                      sizes="(min-width: 1024px) 260px, 90vw"
                       unoptimized
                       className="object-contain"
                     />

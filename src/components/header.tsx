@@ -69,7 +69,7 @@ export default function Header() {
               href="/our-team"
               className="hover:text-gray-400 hover:scale-105 transition duration-200"
             >
-              OUR TEAM
+              TEAM
             </Link>
             <Link
               href="/contact"
@@ -115,7 +115,7 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="block hover:text-gray-400"
           >
-            OUR TEAM
+            TEAM
           </Link>
           <Link
             href="/contact"
