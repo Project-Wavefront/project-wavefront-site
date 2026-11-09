@@ -60,6 +60,12 @@ export default function Header() {
               MARK I
             </Link>
             <Link
+              href="/mark-ii"
+              className="hover:text-gray-400 hover:scale-105 transition duration-200"
+            >
+              MARK II
+            </Link>
+            <Link
               href="/our-team"
               className="hover:text-gray-400 hover:scale-105 transition duration-200"
             >
@@ -69,7 +75,7 @@ export default function Header() {
               href="/contact"
               className="hover:text-gray-400 hover:scale-105 transition duration-200"
             >
-              CONTACT US
+              JOIN US
             </Link>
           </div>
 
@@ -98,6 +104,13 @@ export default function Header() {
             MARK I
           </Link>
           <Link
+            href="/mark-ii"
+            onClick={() => setMenuOpen(false)}
+            className="block hover:text-gray-400"
+          >
+            MARK II
+          </Link>
+          <Link
             href="/our-team"
             onClick={() => setMenuOpen(false)}
             className="block hover:text-gray-400"
@@ -109,7 +122,7 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="block hover:text-gray-400"
           >
-            CONTACT US
+            JOIN US
           </Link>
         </div>
       )}

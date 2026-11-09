@@ -29,16 +29,6 @@ export const ACTIVE_MEMBERS: TeamMember[] = [
     url: "https://www.linkedin.com/in/joshua-dalal-6b8a5519b/",
   },
   {
-    image: "/team/devan-malik.jpg",
-    name: "Devan Malik",
-    title: "Control Systems Lead",
-    school: "University of Pennsylvania",
-    major: "Electrical & Systems Engineering",
-    sentence:
-      "“Wavefront is a chance to work directly with cutting-edge propulsion tech alongside a driven team of engineers pushing the limits of what\'s possible.”",
-    url: "https://www.linkedin.com/in/devan-malik",
-  },
-  {
     image: "/team/annie-gao.jpg",
     name: "Annie Gao",
     title: "Propulsion Engineer",
@@ -89,16 +79,6 @@ export const ACTIVE_MEMBERS: TeamMember[] = [
     url: "https://www.linkedin.com/in/christian-stuit-935143286/",
   },
   {
-    image: "/team/malin-kussi.jpg",
-    name: "Malin Kussi",
-    title: "Software Engineer",
-    school: "Temple University",
-    major: "Computer Science",
-    sentence:
-      "“I'm excited to apply my technical skills and learn more about rocket engine systems alongside a team that shares the same passion for propulsion!”",
-    url: "https://www.linkedin.com/in/malin-kussi/",
-  },
-  {
     image: "/team/donovan-burke.png",
     name: "Donovan Burke",
     title: "Mechanical Engineer",
@@ -107,6 +87,29 @@ export const ACTIVE_MEMBERS: TeamMember[] = [
     sentence:
       "“I’m excited to turn an ambitious idea into real hardware, learn alongside a driven team, and contribute to the future of propulsion.”",
     url: "https://donovan-burke.me/",
+  },
+];
+
+export const PREVIOUS_MEMBERS: TeamMember[] = [
+  {
+    image: "/team/devan-malik.jpg",
+    name: "Devan Malik",
+    title: "Control Systems Lead",
+    school: "University of Pennsylvania",
+    major: "Electrical & Systems Engineering",
+    sentence:
+      "“Wavefront is a chance to work directly with cutting-edge propulsion tech alongside a driven team of engineers pushing the limits of what\'s possible.”",
+    url: "https://www.linkedin.com/in/devan-malik",
+  },
+  {
+    image: "/team/malin-kussi.jpg",
+    name: "Malin Kussi",
+    title: "Software Engineer",
+    school: "Temple University",
+    major: "Computer Science",
+    sentence:
+      "“I'm excited to apply my technical skills and learn more about rocket engine systems alongside a team that shares the same passion for propulsion!”",
+    url: "https://www.linkedin.com/in/malin-kussi/",
   },
   {
     image: "/team/jacob-stein.jpg",
@@ -118,9 +121,6 @@ export const ACTIVE_MEMBERS: TeamMember[] = [
       "“I'm excited to be part of a team of passionate innovators who share my belief in this challenging and invigorating initiative.”",
     url: "https://www.linkedin.com/in/jacob-stein7/",
   },
-];
-
-export const PREVIOUS_MEMBERS: TeamMember[] = [
   {
     image: "/team/fernando-deory.jpg",
     name: "Fernando de Ory",

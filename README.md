@@ -63,3 +63,14 @@ npm run dev
 7. You should see a message in the terminal that says something like "Local: http://localhost:3000". Open this URL in your web browser to see the website running locally.
 
 Congratulations, you have officially run a development server for the website! You can now make changes to the code and see them reflected in the browser in real-time. To stop the development server, simply go back to the terminal and press `Ctrl + C`.
+
+## Application form email delivery
+
+The Join Us form at `/contact` sends each application and resume to `contact@projectwavefront.org` through Resend. It sends from `Project Wavefront <applications@mail.projectwavefront.org>` and sets Reply-To to the applicant's email.
+
+1. In Resend, add `mail.projectwavefront.org` as a **sending** domain. Add the DNS records Resend shows at the DNS provider for `projectwavefront.org`, then wait until Resend marks sending as verified. This does not change where `contact@projectwavefront.org` receives mail.
+2. In Resend, create an API key with **Sending access** for that domain.
+3. For local testing, copy `.env.example` to `.env.local` and put the key after `RESEND_API_KEY=`. Restart `npm run dev` and submit one test application with a small PDF resume.
+4. For the public website, add `RESEND_API_KEY` to the hosting provider's server environment and redeploy. Test the public form and check the message and attachment in both Resend's Emails page and the contact inbox.
+
+Keep the key out of source control and browser code. The form returns an error if email delivery is not configured or Resend rejects the message.

@@ -22,7 +22,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-slate-300 mb-4 max-w-md text-sm">
-              Building a Student-Led Future of Rotating Detonation Technology
+              Rocket engines, built by students.
             </p>
           </div>
 
@@ -42,13 +42,19 @@ export default function Footer() {
                 href="/contact"
                 className="w-fit hover:text-blue-400 transition duration-200"
               >
-                CONTACT US
+                JOIN US
               </Link>
               <Link
                 href="/mark-i"
                 className="w-fit hover:text-blue-400 transition duration-200"
               >
                 MARK I
+              </Link>
+              <Link
+                href="/mark-ii"
+                className="w-fit hover:text-blue-400 transition duration-200"
+              >
+                MARK II
               </Link>
               <a
                 href="https://gofund.me/687250765"
@@ -66,15 +72,20 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-base">CONTACT</h3>
             <div className="space-y-1 text-slate-300 text-sm">
               <p>Philadelphia, PA 19104</p>
-              <p>contact@projectwavefront.org</p>
+              <a
+                href="mailto:contact@projectwavefront.org"
+                className="hover:text-white"
+              >
+                contact@projectwavefront.org
+              </a>
             </div>
           </div>
         </div>
 
         <div className="flex flex-row gap-4 border-t border-gray-700/50 pt-6 items-center justify-center">
           <p className="text-slate-400 text-center text-sm">
-            © 2025 Project Wavefront. All rights reserved. Built by students,
-            for the future.
+            © 2026 Project Wavefront. All rights reserved. Built and tested by
+            students.
           </p>
           <span className="text-slate-400 text-xl">•</span>
           <div className="flex space-x-3">

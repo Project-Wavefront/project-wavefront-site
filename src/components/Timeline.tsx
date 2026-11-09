@@ -13,7 +13,7 @@ interface Milestone {
 interface TimelineProps {
   milestones: Milestone[];
   startDate: string; // Format: "YYYY-MM"
-  endDate: string; // Format: "YYYY-MM"
+  endDate: string; // Format: "YYYY-MM" or "YYYY-MM-DD"
 }
 
 export default function Timeline({
@@ -30,7 +30,9 @@ export default function Timeline({
   };
 
   const start = parseDate(`${startDate}-01`);
-  const end = parseDate(`${endDate}-28`);
+  const end = /^\d{4}-\d{2}-\d{2}$/.test(endDate)
+    ? parseDate(endDate)
+    : parseDate(`${endDate}-28`);
 
   // Calculate total days for more precise positioning
   const totalDays = Math.floor(
@@ -71,6 +73,17 @@ export default function Timeline({
         position: Math.min(Math.max(position, 0), 100),
       });
     }
+    if (/^\d{4}-\d{2}-\d{2}$/.test(endDate)) {
+      return [
+        ...labels.filter((label) => label.position < 93),
+        {
+          month: `${end.toLocaleString("en-US", { month: "short" })} ${end.getDate()}`,
+          year: end.getFullYear(),
+          position: 100,
+        },
+      ];
+    }
+
     return labels;
   };
 
@@ -134,7 +147,9 @@ export default function Timeline({
         )}
 
         {/* Timeline Line */}
-        <div className="absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-emerald-600 via-slate-600 to-slate-700 rounded-full" />
+        <div
+          className={`absolute top-16 left-0 right-0 h-1 rounded-full ${milestones.every((milestone) => milestone.completed) ? "bg-emerald-600" : "bg-gradient-to-r from-emerald-600 via-slate-600 to-slate-700"}`}
+        />
 
         {/* Milestones */}
         {milestones.map((milestone, index) => {
@@ -230,18 +245,6 @@ export default function Timeline({
             </div>
           );
         })}
-      </div>
-
-      {/* Legend */}
-      <div className="flex items-center justify-center gap-6 mt-8 text-xs text-slate-400">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-emerald-500 border-2 border-emerald-400" />
-          <span>Completed</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-slate-700 border-2 border-slate-600" />
-          <span>Upcoming</span>
-        </div>
       </div>
     </div>
   );

@@ -30,17 +30,28 @@ export default function OurTeam() {
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center mb-6">
               TEAM WAVEFRONT
             </h1>
+            <p className="mx-auto max-w-2xl text-center text-xl leading-relaxed text-slate-300">
+              The undergraduate team behind Mark I&apos;s successful hotfire
+              campaign.
+            </p>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-8 w-8 text-slate-400" />
-        </div>
+        <a
+          href="#team-members"
+          aria-label="Scroll to team members"
+          className="absolute bottom-4 left-1/2 z-10 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full text-slate-400 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+          <ChevronDown aria-hidden="true" className="h-8 w-8 animate-bounce" />
+        </a>
       </section>
 
       <div className="relative bg-black z-0">
         {/** ACTIVE MEMBERS */}
-        <section className="pt-12 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <section
+          id="team-members"
+          className="scroll-mt-16 pt-12 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+        >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-14 md:gap-16 lg:gap-20 xl:gap-24 justify-center max-w-[90vw]">
             {ACTIVE_MEMBERS.map((member) => (
               <ProfileCard key={member.name} {...member} />

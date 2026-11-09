@@ -8,8 +8,6 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 import Link from "next/link";
 
-// hello world!
-
 type Sponsor = {
   src: string;
   alt: string;
@@ -110,14 +108,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-black z-[-1] overflow-hidden flex items-center justify-center">
           <div className="relative w-[150%] h-[150%] opacity-70">
             <Image
-              src="/home/glimmer_temp.gif"
-              alt="Project Wavefront banner"
+              src="/mark-i/firing.gif"
+              alt="Mark I firing on the test stand"
               fill
               style={{ objectFit: "cover" }}
               unoptimized
-              className="scale-70"
+              className="scale-90"
             />
           </div>
+          <div className="absolute inset-0 bg-black/45" />
         </div>
 
         <div className="max-w-7xl mx-auto text-center w-full">
@@ -125,36 +124,51 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 tracking-wide">
               PROJECT WAVEFRONT
             </h1>
-            <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              More Efficient Rocket Engines, Built by Students
+            <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+              Mark I is the longest-duration rotating detonation rocket engine
+              ever tested by students. The engine was designed, fabricated, and
+              constructed by an entirely undergraduate team.
             </p>
 
-            {/* Support Button */}
-            <Link
-              href="https://gofund.me/dd2b2e6a3"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-8 py-4 bg-black-600 hover:bg-emerald-800 text-white font-bold text-lg rounded-lg transition-all duration-250 transform hover:scale-110 hover:shadow-xl"
-            >
-              Support Us
-            </Link>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="https://gofund.me/dd2b2e6a3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-w-40 justify-center rounded-lg bg-white px-8 py-4 text-lg font-bold text-black transition-all duration-200 hover:scale-105 hover:bg-slate-200 hover:shadow-xl"
+              >
+                Support Us
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex min-w-40 justify-center rounded-lg bg-white px-8 py-4 text-lg font-bold text-black transition-all duration-200 hover:scale-105 hover:bg-slate-200 hover:shadow-xl"
+              >
+                Join Us
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-8 w-8 text-slate-400" />
-        </div>
+        <a
+          href="#mark-i-preview"
+          aria-label="Scroll to Mark I"
+          className="absolute bottom-4 left-1/2 z-10 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full text-slate-400 transition hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+          <ChevronDown aria-hidden="true" className="h-8 w-8 animate-bounce" />
+        </a>
       </section>
 
-      {/** Mark I Section (Carousel ?) */}
-      <section className="relative z-10 pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-end">
+      {/** Mark I Section */}
+      <section
+        id="mark-i-preview"
+        className="relative z-10 scroll-mt-16 pt-24 pb-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-end"
+      >
         <div className="absolute inset-x-0 top-0 w-full h-[100vh] bg-black z-[-1] min-h-screen">
           <Image
-            src="/home/injector.jpg"
-            className="opacity-60 blur-sm [mask-image:linear-gradient(to_right,transparent_0%,black_0%,black_100%,transparent_100%),linear-gradient(to_bottom,transparent_0%,black_0%,black_100%,transparent_100%)]"
-            alt="Project Wavefront banner"
-            layout="fill"
-            objectFit="cover"
+            src="/mark-i/hotfire-front.png"
+            alt="Mark I firing during a test"
+            fill
+            className="object-cover object-center opacity-60 blur-sm"
           />
         </div>
         <div className="max-w-7xl mx-auto text-left w-full">
@@ -162,11 +176,16 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl lg:text-6xl font-bold mb-4 tracking-wide">
               MARK I
             </h1>
-            <p className="text-xl md:text-2xl mb-18 max-w-lg text-white">
-              Mark I will be the first long-duration rotating detonation rocket
-              engine, designed, fabricated, and constructed by an entirely
-              student team.
+            <p className="text-xl md:text-2xl mb-8 max-w-lg text-white">
+              Our monolithic, 3D-printed engine completed 100 tests in November
+              2026, with a longest burn of 10 seconds.
             </p>
+            <Link
+              href="/mark-i"
+              className="mb-10 inline-block border-b border-white pb-1 text-sm font-semibold uppercase tracking-[0.18em] hover:text-slate-300"
+            >
+              Explore Mark I
+            </Link>
           </div>
         </div>
       </section>
@@ -187,13 +206,11 @@ export default function Home() {
                 </h3>
               </div>
               <p className="text-md md:text-lg lg:text-lg text-slate-300 mb-12 leading-relaxed max-w-xl">
-                Mark I is our proof of concept. The entire engine is designed
-                and fabricated from the ground up by an entirely undergraduate
-                team. Guided through collaborations with experts across the
-                industry, including NASA, Project Wavefront is planning to close
-                the loop from ideation to delivery in less than 12 months. With
-                a test campaign slated for Q3 2026, Project Wavefront is ready
-                to redefine the future of Aerospace.
+                Mark I is our proof of concept. An entirely undergraduate team
+                designed, fabricated, and constructed the monolithic, 3D-printed
+                engine, then put it through 100 tests in November 2026. The
+                campaign turned student-led design and collaboration into
+                demonstrated hardware.
               </p>
             </div>
 
@@ -223,9 +240,8 @@ export default function Home() {
             <Image
               src="/home/team.jpeg"
               alt="Project Wavefront mission image"
-              layout="fill"
-              objectFit="cover"
-              className=""
+              fill
+              className="object-cover"
             />
           </div>
         </div>
@@ -262,15 +278,14 @@ export default function Home() {
             </p>
             <p className="text-xl md:text-2xl lg:text-xl text-slate-300 mb-12 leading-relaxed max-w-xl">
               We are continuously looking for additional sponsors to help
-              advance our mission. Please reach out through our{" "}
-              {/* TODO hover bold on top of underline */}
+              advance our mission. Please reach out at{" "}
               <Link
-                href="/contact"
+                href="mailto:contact@projectwavefront.org"
                 className="font-bold hover:text-strong transition-all duration-200 underline"
               >
-                Contact Us
-              </Link>{" "}
-              page.
+                contact@projectwavefront.org
+              </Link>
+              .
             </p>
           </div>
           {/* Right Column: Sponsor Logos */}
