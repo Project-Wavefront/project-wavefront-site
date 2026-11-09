@@ -96,6 +96,11 @@
   }
 }
 
+.timeline-instruction-wrap:has(button[aria-expanded="true"])
+  .timeline-instruction {
+  opacity: 0;
+}
+
 /* src/app/globals.css */
 .animate-fade-slide-up {
   animation: fadeSlideUp 1s ease-in-out forwards;

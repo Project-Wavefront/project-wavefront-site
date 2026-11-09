@@ -22,6 +22,7 @@ export default function Timeline({
   endDate,
 }: TimelineProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   // Parse dates
   const parseDate = (dateStr: string) => {
@@ -104,9 +105,9 @@ export default function Timeline({
       : null;
 
   return (
-    <div className="w-full py-12 px-10">
+    <div className="w-full px-36 py-8">
       {/* Timeline Container */}
-      <div className="relative w-full" style={{ minHeight: "400px" }}>
+      <div className="relative w-full" style={{ minHeight: "320px" }}>
         {/* Month Labels */}
         <div className="absolute top-0 w-full h-8">
           {monthLabels.map((label, idx) => (
@@ -154,10 +155,18 @@ export default function Timeline({
         {/* Milestones */}
         {milestones.map((milestone, index) => {
           const position = getMilestonePosition(milestone.date);
-          const isHovered = hoveredIndex === index;
+          const isActive = hoveredIndex === index || selectedIndex === index;
+          const matchingDates = milestones.filter(
+            (item) => item.date === milestone.date,
+          );
+          const duplicateIndex = milestones
+            .slice(0, index)
+            .filter((item) => item.date === milestone.date).length;
+          const duplicateOffset =
+            (duplicateIndex - (matchingDates.length - 1) / 2) * 32;
 
           // Alternate tooltip positions to avoid overlap
-          const tooltipOffset = index % 2 === 0 ? "top-24" : "top-32";
+          const tooltipOffset = index % 2 === 0 ? "top-16" : "top-20";
 
           return (
             <div
@@ -165,8 +174,8 @@ export default function Timeline({
               className="absolute top-12"
               style={{
                 left: `${position}%`,
-                transform: "translateX(-50%)",
-                zIndex: isHovered ? 100 : 10,
+                transform: `translateX(calc(-50% + ${duplicateOffset}px))`,
+                zIndex: isActive ? 100 : 10,
               }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -181,34 +190,54 @@ export default function Timeline({
                   `}
                 />
 
-                <div
+                <button
+                  type="button"
+                  aria-label={`${milestone.title}, ${parseDate(milestone.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}`}
+                  aria-expanded={isActive}
+                  onFocus={(event) => {
+                    setHoveredIndex(index);
+                    event.currentTarget.scrollIntoView({
+                      block: "nearest",
+                      inline: "center",
+                    });
+                  }}
+                  onBlur={() => setHoveredIndex(null)}
+                  onClick={(event) => {
+                    event.currentTarget.scrollIntoView({
+                      block: "nearest",
+                      inline: "center",
+                    });
+                    setHoveredIndex(null);
+                    setSelectedIndex((current) =>
+                      current === index ? null : index,
+                    );
+                  }}
                   className={`
-                    rounded-full border-4 transition-all duration-300
+                    rounded-full border-4 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white
                     ${
                       milestone.completed
                         ? "bg-emerald-500 border-emerald-400 shadow-lg shadow-emerald-500/50"
                         : "bg-slate-700 border-slate-600"
                     }
-                    ${isHovered ? "w-6 h-6 scale-125" : "w-5 h-5"}
+                    ${isActive ? "w-6 h-6 scale-125" : "w-5 h-5"}
                   `}
                 >
-                  {milestone.completed && isHovered && (
+                  {milestone.completed && isActive && (
                     <CheckCircle2 className="absolute inset-0 w-full h-full text-white" />
                   )}
-                </div>
+                </button>
 
                 {/* Tooltip Card */}
                 <div
                   className={`
-                    absolute ${tooltipOffset} w-72 bg-slate-900 border rounded-lg p-4 shadow-2xl
+                    absolute ${tooltipOffset} w-72 max-w-[calc(100vw-4rem)] bg-slate-900 border rounded-lg p-4 shadow-2xl
                     transition-all duration-300
-                    ${isHovered ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2 pointer-events-none"}
+                    ${isActive ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2 pointer-events-none"}
                     ${milestone.completed ? "border-emerald-500/50" : "border-slate-700"}
                   `}
                   style={{
-                    left: position > 80 ? "auto" : "50%",
-                    right: position > 80 ? "0" : "auto",
-                    transform: position > 80 ? "none" : "translateX(-50%)",
+                    left: "50%",
+                    transform: "translateX(-50%)",
                   }}
                 >
                   <div className="flex items-start gap-2 mb-2">

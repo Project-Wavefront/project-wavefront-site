@@ -100,7 +100,7 @@ const timelineMilestones = [
     date: "2026-01-20",
     title: "Mark I Demonstrator Printed",
     description:
-      "The team prints an early Mark I demonstrator to verify combustion geometry and test systems.",
+      "An early Mark I demonstrator is printed by Renishaw to verify combustion geometry and test systems.",
     completed: true,
   },
   {
@@ -115,6 +115,13 @@ const timelineMilestones = [
     title: "Test Stand and Controls Build Begins",
     description:
       "Construction begins on the custom test stand and electronic control and data systems.",
+    completed: true,
+  },
+  {
+    date: "2026-04-01",
+    title: "Kulite, SendCutSend, and Hy-Grade Sponsor Wavefront",
+    description:
+      "Kulite Semiconductors, SendCutSend, and Hy-Grade Valves sponsor Project Wavefront.",
     completed: true,
   },
   {
@@ -135,7 +142,7 @@ const timelineMilestones = [
     date: "2026-09-01",
     title: "Additional Sponsors Join Project Wavefront",
     description:
-      "Renishaw, Kittyhawk, SendCutSend, Vacuum Braze, Harvey Tool, Kennametal, Kulite Semiconductors, and Hy-Grade Valves sponsor Project Wavefront.",
+      "Kittyhawk, Vacuum Braze, Harvey Tool, and Kennametal sponsor Project Wavefront.",
     completed: true,
   },
   {
@@ -201,8 +208,8 @@ export default function MarkI() {
             </h1>
             <p className="mx-auto mt-7 max-w-3xl text-xl leading-relaxed text-slate-200 sm:text-2xl">
               The longest-duration rotating detonation rocket engine ever tested
-              by students. Designed, fabricated, and constructed by an entirely
-              undergraduate team.
+              by students. Designed and fabricated by an entirely undergraduate
+              team.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-8">
               {specs.map((spec) => (
@@ -350,14 +357,25 @@ export default function MarkI() {
               From project kickoff to Mark I&apos;s successful hotfire on
               November 4, 2026.
             </p>
-            <div className="mt-12 overflow-x-auto">
-              <div className="min-w-[900px]">
-                <Timeline
-                  startDate="2025-06"
-                  endDate="2026-11-04"
-                  milestones={timelineMilestones}
-                />
+            <div className="timeline-instruction-wrap relative mt-8">
+              <div
+                className="relative z-10 overflow-x-auto overscroll-x-contain"
+                role="region"
+                aria-label="Mark I timeline, scroll horizontally for all milestones"
+                tabIndex={0}
+              >
+                <div className="min-w-[1600px]">
+                  <Timeline
+                    startDate="2025-06"
+                    endDate="2026-11-04"
+                    milestones={timelineMilestones}
+                  />
+                </div>
               </div>
+              <p className="timeline-instruction pointer-events-none absolute inset-x-0 top-44 text-center text-xs leading-relaxed text-slate-500 transition-opacity">
+                Scroll horizontally to explore the timeline. Hover over a point
+                for details.
+              </p>
             </div>
           </div>
         </section>
