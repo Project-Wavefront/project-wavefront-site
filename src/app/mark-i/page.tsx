@@ -139,6 +139,13 @@ const timelineMilestones = [
     completed: true,
   },
   {
+    date: "2026-10-12",
+    title: "Mark I Machining Complete",
+    description:
+      "The team completes all machining operations on Mark I's ports and interfaces.",
+    completed: true,
+  },
+  {
     date: "2026-11-04",
     title: "Mark I Hotfire",
     description: "Mark I successfully hotfires.",
