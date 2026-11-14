@@ -17,7 +17,6 @@ type Sponsor = {
   imageClass?: string;
   lightCard?: boolean;
   fillWidth?: boolean;
-  fitHeight?: boolean;
   cardClass?: string;
 };
 
@@ -101,10 +100,8 @@ const sponsors: Sponsor[] = [
     src: "/home/sponsors/orville.png",
     alt: "Orville sponsor logo",
     href: "https://www.ballistalabs.ai/",
-    width: 75,
-    height: 96,
-    lightCard: true,
-    fitHeight: true,
+    width: 2400,
+    height: 734,
   },
 ];
 
@@ -324,11 +321,9 @@ export default function Home() {
                       width={sponsor.width}
                       height={sponsor.height}
                       className={`object-contain transition-transform duration-200 group-hover:scale-105 ${
-                        sponsor.fitHeight
-                          ? "h-full w-auto"
-                          : sponsor.fillWidth
-                            ? "h-auto w-full max-w-none"
-                            : "max-h-full max-w-full"
+                        sponsor.fillWidth
+                          ? "h-auto w-full max-w-none"
+                          : "max-h-full max-w-full"
                       }`}
                     />
                   </div>
