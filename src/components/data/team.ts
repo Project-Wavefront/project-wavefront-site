@@ -88,6 +88,16 @@ export const ACTIVE_MEMBERS: TeamMember[] = [
       "“I’m excited to turn an ambitious idea into real hardware, learn alongside a driven team, and contribute to the future of propulsion.”",
     url: "https://donovan-burke.me/",
   },
+  {
+    image: "/team/jacob-stein.jpg",
+    name: "Jacob Stein",
+    title: "Chief Administrative Officer",
+    school: "Northwestern University",
+    major: "Philosophy & Psychology",
+    sentence:
+      "“I'm excited to be part of a team of passionate innovators who share my belief in this challenging and invigorating initiative.”",
+    url: "https://www.linkedin.com/in/jacob-stein7/",
+  },
 ];
 
 export const PREVIOUS_MEMBERS: TeamMember[] = [
@@ -110,16 +120,6 @@ export const PREVIOUS_MEMBERS: TeamMember[] = [
     sentence:
       "“I'm excited to apply my technical skills and learn more about rocket engine systems alongside a team that shares the same passion for propulsion!”",
     url: "https://www.linkedin.com/in/malin-kussi/",
-  },
-  {
-    image: "/team/jacob-stein.jpg",
-    name: "Jacob Stein",
-    title: "Chief Administrative Officer",
-    school: "Northwestern University",
-    major: "Philosophy & Psychology",
-    sentence:
-      "“I'm excited to be part of a team of passionate innovators who share my belief in this challenging and invigorating initiative.”",
-    url: "https://www.linkedin.com/in/jacob-stein7/",
   },
   {
     image: "/team/fernando-deory.jpg",
