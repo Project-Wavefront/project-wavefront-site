@@ -142,7 +142,7 @@ const timelineMilestones = [
     date: "2026-09-01",
     title: "Additional Sponsors Join Project Wavefront",
     description:
-      "Kittyhawk, Vacuum Braze, Harvey Tool, and Kennametal sponsor Project Wavefront.",
+      "Kittyhawk, Vacu Braze, Harvey Tool, and Kennametal sponsor Project Wavefront.",
     completed: true,
   },
   {
