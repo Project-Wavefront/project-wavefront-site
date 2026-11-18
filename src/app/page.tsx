@@ -8,12 +8,23 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 import Link from "next/link";
 
-type Sponsor = {
-  src: string;
-  alt: string;
-  href: string;
-  width: number;
-  height: number;
+type Sponsor = (
+  | {
+      src: string;
+      alt: string;
+      width: number;
+      height: number;
+      name?: never;
+    }
+  | {
+      name: string;
+      src?: never;
+      alt?: never;
+      width?: never;
+      height?: never;
+    }
+) & {
+  href?: string;
   imageClass?: string;
   lightCard?: boolean;
   fillWidth?: boolean;
@@ -21,6 +32,14 @@ type Sponsor = {
 };
 
 const sponsors: Sponsor[] = [
+  {
+    name: "Musk Foundation",
+    href: "https://www.muskfoundation.org/",
+  },
+  {
+    name: "Definity Education",
+    href: "https://www.definityeducation.org/",
+  },
   {
     src: "/home/sponsors/newansys.png",
     alt: "Ansys sponsor logo",
@@ -271,7 +290,7 @@ export default function Home() {
             starSpeed={0.2}
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full h-full">
+        <div className="grid grid-cols-1 xl:grid-cols-2 w-full h-full">
           {/* Left Column: Text */}
           <div className="flex flex-col items-start justify-start ml-8 mt-24 pl-2 sm:pl-4 lg:pl-6">
             <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-wide">
@@ -298,20 +317,14 @@ export default function Home() {
           {/* Right Column: Sponsor Logos */}
           <div className="flex items-center justify-center px-6 pb-16 md:px-8 md:py-20">
             <div className="grid w-full max-w-3xl grid-cols-2 gap-4 sm:gap-6">
-              {sponsors.map((sponsor) => (
-                <Link
-                  key={sponsor.alt}
-                  href={sponsor.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Visit ${sponsor.alt.replace(" sponsor logo", "")}`}
-                  className={`group flex h-28 items-center justify-center rounded-xl border p-5 shadow-lg backdrop-blur-sm transition-all duration-200 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:h-32 sm:p-6 ${
-                    sponsor.cardClass ??
-                    (sponsor.lightCard
-                      ? "border-slate-200/80 bg-slate-100 hover:border-white hover:bg-white"
-                      : "border-white/15 bg-black/35 hover:border-white/40 hover:bg-white/10")
-                  }`}
-                >
+              {sponsors.map((sponsor) => {
+                const cardClassName = `group flex h-28 items-center justify-center rounded-xl border p-5 shadow-lg backdrop-blur-sm transition-all duration-200 sm:h-32 sm:p-6 ${
+                  sponsor.cardClass ??
+                  (sponsor.lightCard
+                    ? "border-slate-200/80 bg-slate-100 hover:border-white hover:bg-white"
+                    : "border-white/15 bg-black/35 hover:border-white/40 hover:bg-white/10")
+                } ${sponsor.href ? "hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" : ""}`;
+                const content = sponsor.src ? (
                   <div
                     className={`pointer-events-none flex h-full w-full items-center justify-center ${sponsor.imageClass ?? ""}`}
                   >
@@ -327,8 +340,32 @@ export default function Home() {
                       }`}
                     />
                   </div>
-                </Link>
-              ))}
+                ) : (
+                  <span className="text-center text-lg font-light uppercase leading-tight tracking-[0.12em] text-white sm:text-xl">
+                    {sponsor.name}
+                  </span>
+                );
+
+                return sponsor.href ? (
+                  <Link
+                    key={sponsor.src ?? sponsor.name}
+                    href={sponsor.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit ${sponsor.src ? sponsor.alt.replace(" sponsor logo", "") : sponsor.name}`}
+                    className={cardClassName}
+                  >
+                    {content}
+                  </Link>
+                ) : (
+                  <div
+                    key={sponsor.src ?? sponsor.name}
+                    className={cardClassName}
+                  >
+                    {content}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
